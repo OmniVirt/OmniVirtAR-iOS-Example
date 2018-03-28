@@ -1,0 +1,11 @@
+framework module OmniVirtAR {
+  umbrella header "OmniVirtAR.h"
+
+  export *
+  module * { export * }
+}
+
+module OmniVirtAR.Swift {
+    header "OmniVirtAR-Swift.h"
+    requires objc
+}

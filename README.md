@@ -1,6 +1,6 @@
 # OmniVirtAR iOS Example
 
-- [See preview video](#See preview video)
+- [See preview video](#See-preview-video)
 - [Requirements](#Requirements)
 - [Installation](#Installation)
 - [Usage](#Usage)

@@ -175,10 +175,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CoreMotion;
 @import UIKit;
 @import CoreGraphics;
-@import SceneKit;
-@import ObjectiveC;
-@import WebKit;
-@import ARKit;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -196,37 +192,6 @@ SWIFT_MODULE_NAMESPACE_PUSH("OmniVirtAR")
 
 SWIFT_CLASS("_TtC10OmniVirtAR11OVARNibView")
 @interface OVARNibView : UIView
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-
-SWIFT_CLASS("_TtC10OmniVirtAR16OVARPanoramaView")
-@interface OVARPanoramaView : SCNNode
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class WKWebView;
-@protocol WKURLSchemeTask;
-
-SWIFT_CLASS("_TtC10OmniVirtAR20OVARURLSchemeHandler")
-@interface OVARURLSchemeHandler : NSObject <WKURLSchemeHandler>
-- (void)webView:(WKWebView * _Nonnull)webView startURLSchemeTask:(id <WKURLSchemeTask> _Nonnull)urlSchemeTask;
-- (void)webView:(WKWebView * _Nonnull)webView stopURLSchemeTask:(id <WKURLSchemeTask> _Nonnull)urlSchemeTask;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-@end
-
-@class UIWindow;
-
-SWIFT_CLASS("_TtC10OmniVirtAR23OVARVirtualObjectARView")
-@interface OVARVirtualObjectARView : ARSCNView
-- (void)awakeFromNib;
-- (void)didMoveToWindow;
-- (void)willMoveToWindow:(UIWindow * _Nullable)newWindow;
-- (nonnull instancetype)initWithFrame:(CGRect)frame options:(NSDictionary<NSString *, id> * _Nullable)options OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end

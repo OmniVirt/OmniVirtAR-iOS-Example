@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OmniVirtAR
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,5 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return OVARLauncher.shared.openURL(url, options)
+    }
 }
 

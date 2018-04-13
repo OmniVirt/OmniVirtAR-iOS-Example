@@ -165,9 +165,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_feature(modules)
 @import CoreMotion;
 @import ObjectiveC;
-@import UIKit;
-@import CoreGraphics;
 @import SceneKit;
+@import UIKit;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -199,31 +198,6 @@ SWIFT_CLASS("_TtC10OmniVirtAR12OVARLauncher")
 @interface OVARLauncher : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
-@class NSCoder;
-
-SWIFT_CLASS("_TtC10OmniVirtAR11OVARNibView")
-@interface OVARNibView : UIView
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC10OmniVirtAR31OVARVirtualObjectAdInterstitial")
-@interface OVARVirtualObjectAdInterstitial : OVARNibView
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC10OmniVirtAR23OVARVirtualObjectAdView")
-@interface OVARVirtualObjectAdView : OVARNibView
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 
 
 

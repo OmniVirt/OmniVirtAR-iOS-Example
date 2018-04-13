@@ -1,7 +1,7 @@
 {
   "name": "OmniVirtAR-iOS-SDK",
   "module_name": "OmniVirtAR",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "summary": "OmniVirt Augmented Reality SDK for iOS",
   "homepage": "https://www.omnivirt.com",
   "license": {
@@ -9,7 +9,7 @@
     "file": "LICENSE"
   },
   "authors": {
-    "OmniVirt Team": "contact@omnivirt.com"
+    "OmniVirt": "contact@omnivirt.com"
   },
   "social_media_url": "https://www.facebook.com/omnivirt",
   "platforms": {
@@ -17,7 +17,7 @@
   },
   "source": {
     "git": "https://github.com/OmniVirt/OmniVirtAR-iOS-SDK.git",
-    "tag": "v1.0.1"
+    "tag": "v1.1.0"
   },
   "ios": {
     "vendored_frameworks": "OmniVirtAR.framework",

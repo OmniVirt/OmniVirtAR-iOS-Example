@@ -12,26 +12,16 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var button: LoadingButton!
     
-    var adView: OVARVirtualObjectAdInterstitial!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         button.layer.cornerRadius = 25
     }
-
+    
     @IBAction func onButtonTouchUpInside(_ sender: Any) {
-        button.showLoading()
-
-        adView = OVARVirtualObjectAdInterstitial()
-        adView.virtualObjectID = 26
-        adView.load(completion: {[weak self] () in
-            if let strongSelf = self {
-                strongSelf.button.hideLoading()
-                strongSelf.adView.present(fromRootViewController: strongSelf)
-            }
-        })
+        let adView = OVARInterstitial(adUnitID: "26")
+        adView.present()
     }
-
+    
 }
 
 class LoadingButton: UIButton {

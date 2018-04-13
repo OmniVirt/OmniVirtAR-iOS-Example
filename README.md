@@ -12,23 +12,18 @@
 [![](https://img.youtube.com/vi/yXZN9jkQKro/0.jpg)](https://www.youtube.com/watch?v=yXZN9jkQKro)
 
 ## Requirements
-
-- iOS 11.0+
-- Xcode 9.2+
-- Swift 4+
+* iOS 11.0+
+* Xcode 9.2+
+* Swift 4+
 
 ## Installation
 
 ### CocoaPods
-
 [CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. It is the most convenient way to add OmniVirtAR SDK to your app. You can install it with the following command:
-
 ```bash
 $ gem install cocoapods
 ```
-
 To integrate OmniVirtAR into your Xcode project using CocoaPods, specify it in your `Podfile`:
-
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '11.0'
@@ -38,50 +33,64 @@ target '<Your Target Name>' do
     pod 'OmniVirtAR-iOS-SDK'
 end
 ```
-
 Then, run the following command:
-
 ```bash
 $ pod install
 ```
 
 ## Xcode Project Setup
-
-1. Within Xcode, open your `Info.plist` file and add `arkit` into `UIRequiredDeviceCapabilities` and also add `NSCameraUsageDescription` so that your app can use camera for augmented reality.
-
-    ```
-    <key>UIRequiredDeviceCapabilities</key>
-    <array>
-      <string>armv7</string>
-      <string>arkit</string>
-    </array>
-	<key>NSCameraUsageDescription</key>
-	<string>This app will use the camera for AR experience</string>
-    ```
-
-2. To launch the AR ad unit from external apps or mobile web browsers via a custom URL scheme, you need to add `CFBundleURLTypes` into your `Info.plist` file and specify the value for `CFBundleURLName` and `CFBundleURLSchemes` like the code snippet below:
-
-    ```
-    <key>CFBundleURLTypes</key>
-	<array>
-	  <dict>
-	    <key>CFBundleURLName</key>
-	    <string>com.omnivirt.app.APP_ID</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>omnivirt-APP_ID</string>
-        </array>
-      </dict>
-	</array>
-    ```
-
-    **Note:** You must replace `APP_ID` with your own application ID which you would have received when you registered your app with OmniVirt. Please contact us at [contact@omnivirt.com](mailto:contact@omnivirt.com) for more information.
+In your Xcode project, open your `Info.plist` file and add `arkit` into `UIRequiredDeviceCapabilities` and add `NSCameraUsageDescription` with description so that your app can use camera for augmented reality.
+```xml
+<key>UIRequiredDeviceCapabilities</key>
+<array>
+    <string>armv7</string>
+    <string>arkit</string>
+</array>
+<key>NSCameraUsageDescription</key>
+<string>This app will use the camera for AR experience</string>
+```
 
 ## Usage
 
-### **Launch an AR ad unit from external app or web browser**
+Currently, there are two ways to start an AR advertisement. The first way is to call our API to present it manually. Another way is to start it when the user tapped on a button with a special link that uses OmniVirt's custom URL scheme from an external app or a web browser. Then, it will navigate the user to your app and the SDK will present an AR advertisement automatically.
 
-1. Within your `AppDelegate`, override the method `application(_:open:options:)` and add a return statement `return OVARLauncher.shared.openURL(url, options)` like the following:
+### 1) Present an AR ad manually
+
+1. Import module
+
+    ```swift
+    import OmniVirtAR
+    ```
+
+2. Create an instance of `OVARInterstitial` specified by an `adUnitID` then call the `present` method to start:
+    ```swift
+    let adView = OVARInterstitial(adUnitID: "25")
+    adView.present()
+    ```
+
+    Note: You can get the value of `adUnitID` for your ad from OmniVirt Ad Campaign Platform.
+
+### 2) Present an AR ad automatically using a link with custom URL scheme
+
+1. Open `Info.plist` and insert the following:
+
+    ```xml
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+        <key>CFBundleURLName</key>
+        <string>com.omnivirt.app.APP_ID</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>omnivirt-APP_ID</string>
+        </array>
+        </dict>
+    </array>
+    ```
+
+    You must replace `APP_ID` with your own application ID. You can get your own application ID by registering your app with OmniVirt.
+
+2. Within your `AppDelegate`, insert the following line of code:
 
     ```swift
     func application(_ app: UIApplication, open url: URL, options:[UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -89,38 +98,7 @@ $ pod install
     }
     ```
 
-2. Build and run the project. Then open Safari and enter a URL to your ad unit. For example, if your application ID is 12345 and your ad unit ID is 25, your URL would be something like this: `omnivirt-12345://adunit?id=25`. When you enter this URL into Safari and hit the enter button, it will navigate you to your app and launch the AR ad unit automatically.
-
-### **Launch an AR ad unit from within your app**
-
-1. Declare an ad object.
-
-    ```swift
-    class ViewController: UIViewController {
-        
-        var adView = OVARVirtualObjectAdInterstitial!
-        
-        ...
-        
-    }
-    ```
-
-3. Initialize the ad objet with `virtualObjectID` and load the ad. Example below loads the ad at the time a button is clicked. You can get the value of `virtualObjectID` from OmniVirt Ad Campaign Platform.
-
-4. To display ad, pass the completion code block to the load function and call the `present` function. Example below shows the ad right after the load finishes.
-
-    ```swift
-    @IBAction func onButtonTouchUpInside(_ sender: Any) {
-        adView = OVARVirtualObjectAdInterstitial()
-        adView.virtualObjectID = 26
-        adView.load(completion: {[weak self] () in
-            if let strongSelf = self {
-                strongSelf.button.hideLoading()
-                strongSelf.adView.present(fromRootViewController: strongSelf)
-            }
-        })
-    }
-    ```
+2. To test it, open a web browser on your mobile and enter a URL to your ad unit. For example, if your application ID is `12345` and your ad unit ID is `25`, your URL would be something like this: `omnivirt-12345://adunit?id=25`. When you enter this URL and hit the go button, it will navigate you to your app and the SDK will start your AR ad automatically.
 
 ## Questions?
 

@@ -1,31 +1,31 @@
 PODS:
   - Alamofire (4.7.2)
   - GLTFSceneKit (0.1.3)
-  - OmniVirtAR-iOS-SDK (1.2.0):
+  - OmniVirtAR-iOS-SDK (1.2.1):
     - Alamofire (~> 4.7.0)
     - GLTFSceneKit (= 0.1.3)
     - SSZipArchive (~> 2.1.1)
   - SSZipArchive (2.1.2)
 
 DEPENDENCIES:
-  - OmniVirtAR-iOS-SDK (from `https://github.com/OmniVirt/OmniVirtAR-iOS-SDK`, tag `v1.2.0`)
+  - OmniVirtAR-iOS-SDK (from `https://github.com/OmniVirt/OmniVirtAR-iOS-SDK`, tag `v1.2.1`)
 
 EXTERNAL SOURCES:
   OmniVirtAR-iOS-SDK:
     :git: https://github.com/OmniVirt/OmniVirtAR-iOS-SDK
-    :tag: v1.2.0
+    :tag: v1.2.1
 
 CHECKOUT OPTIONS:
   OmniVirtAR-iOS-SDK:
     :git: https://github.com/OmniVirt/OmniVirtAR-iOS-SDK
-    :tag: v1.2.0
+    :tag: v1.2.1
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   GLTFSceneKit: fbec7ef104128201bde53ac5bc37c8a05d764cdf
-  OmniVirtAR-iOS-SDK: 2f83a60bbb4015b2cf05b5d964ff7c25cf5bb738
+  OmniVirtAR-iOS-SDK: 173846c5c8488c7028266a6d783ae4ddbc089490
   SSZipArchive: d4009d2ce5520a421f231fd97028cc0e2667eed8
 
-PODFILE CHECKSUM: 379788c719bcc8388663964ec56728212f2dfe70
+PODFILE CHECKSUM: 07791c58e98e2aac593f02299c5926faa30afe6d
 
 COCOAPODS: 1.4.0

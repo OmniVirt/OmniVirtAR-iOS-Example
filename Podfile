@@ -5,6 +5,6 @@ target "OmniVirtAR Sample App" do
   use_frameworks!
 
   # Pods for OmniVirtAR Sample App
-  pod "OmniVirtAR-iOS-SDK", :git => "https://github.com/OmniVirt/OmniVirtAR-iOS-SDK", :tag => "v1.2.0"
+  pod "OmniVirtAR-iOS-SDK", :git => "https://github.com/OmniVirt/OmniVirtAR-iOS-SDK", :tag => "v1.2.1"
 
 end
